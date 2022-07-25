@@ -7,6 +7,7 @@
 ## Built With:
 * JavaScript
 * CSS
+* Handlebars
 
 ## Installation
 
