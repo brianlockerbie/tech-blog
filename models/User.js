@@ -7,7 +7,7 @@ class User extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
-}
+};
 
 // define table columns and configuration
 User.init(
@@ -24,14 +24,6 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             unique: true
-        },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-            validate: {
-                isEmail: true
-            }
         },
         // define a password column
         password: {
