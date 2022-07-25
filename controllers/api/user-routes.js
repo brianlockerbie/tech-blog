@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Post } = require('../../models');
 const sequelize = require('../../config/connection')
+const withAuth = require('../../utils/auth');
 
 // get all users
 router.get('/', (req, res) => {
@@ -10,8 +11,8 @@ router.get('/', (req, res) => {
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
       console.log(err);
-      res.status(500).json(err);
-    });
+      res.status(400).json(err);
+    })
 });
 
 router.get('/:id', (req, res) => {
@@ -44,7 +45,6 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     User.create({
       username: req.body.username,
-      email: req.body.email,
       password: req.body.password
     })
       .then(dbUserData => {
@@ -54,12 +54,12 @@ router.post('/', (req, res) => {
           req.session.loggedIn = true;
     
           res.json(dbUserData);
-        });
+        })
       })
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
-      });
+      })
 });
 
 router.post('/login', (req, res) => {
@@ -69,7 +69,7 @@ router.post('/login', (req, res) => {
       }
     }).then(dbUserData => {
       if (!dbUserData) {
-        res.status(400).json({ message: 'No user with that username!' });
+        res.status(404).json({ message: 'No user with that username!' });
         return;
       }
   
@@ -88,10 +88,14 @@ router.post('/login', (req, res) => {
   
         res.json({ user: dbUserData, message: 'You are now logged in!' });
       });
-    });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(400).json(err);
+    })
   });
 
-router.post('/logout', (req, res) => {
+router.post('/logout', withAuth, (req, res) => {
     if (req.session.loggedIn) {
       req.session.destroy(() => {
         res.status(204).end();
@@ -117,11 +121,11 @@ router.put('/:id', (req, res) => {
       })
       .catch(err => {
         console.log(err);
-        res.status(500).json(err);
+        res.status(400).json(err);
       });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     User.destroy({
       where: {
         id: req.params.id
