@@ -1,3 +1,10 @@
+{{#if loggedIn}}
+  <h2>Welcome 
+    <a href="/dashboard">{{username}}
+    </a>
+  </h2>
+{{/if}}
+{{#if posts.length}}
 <ol class="post-list">
   {{#each posts as |post|}}
   <li>
@@ -5,3 +12,6 @@
   </li>
   {{/each}}
 </ol>
+{{else}}
+<h3>No blog posts at the moment. Ready, Set, Blog!</h3>
+{{/if}}
