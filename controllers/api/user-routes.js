@@ -1,5 +1,5 @@
-const router = require('express').Router();
 const { User, Post } = require('../../models');
+const router = require('express').Router();
 const sequelize = require('../../config/connection')
 const withAuth = require('../../utils/auth');
 
@@ -17,10 +17,10 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   User.findOne({
-    attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
     },
+    attributes: { exclude: ['password'] },
     include: [
       {
         model: Post,
@@ -39,7 +39,7 @@ router.get('/:id', (req, res) => {
   .catch(err => {
       console.log(err);
       res.status(400).json(err);
-})
+  })
 });
 
 router.post('/', (req, res) => {
@@ -58,7 +58,7 @@ router.post('/', (req, res) => {
       })
       .catch(err => {
         console.log(err);
-        res.status(500).json(err);
+        res.status(400).json(err);
       })
 });
 
@@ -67,11 +67,12 @@ router.post('/login', (req, res) => {
       where: {
         username: req.body.username
       }
-    }).then(dbUserData => {
+    })
+    .then(dbUserData => {
       if (!dbUserData) {
         res.status(404).json({ message: 'No user with that username!' });
         return;
-      }
+      };
   
       const validPassword = dbUserData.checkPassword(req.body.password);
   
@@ -106,8 +107,9 @@ router.post('/logout', withAuth, (req, res) => {
     }
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     User.update(req.body, {
+      individualHooks: true,
       where: {
         id: req.params.id
       }
@@ -122,7 +124,7 @@ router.put('/:id', (req, res) => {
       .catch(err => {
         console.log(err);
         res.status(400).json(err);
-      });
+      })
 });
 
 router.delete('/:id', withAuth, (req, res) => {
@@ -141,8 +143,8 @@ router.delete('/:id', withAuth, (req, res) => {
       .catch(err => {
         console.log(err);
         res.status(400).json(err);
-      });
-});
+      })
+})
 
 
 module.exports = router;
