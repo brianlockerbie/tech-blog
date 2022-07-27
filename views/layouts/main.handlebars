@@ -17,6 +17,7 @@
       <h1>
         <a href="/">Tech Blog</a>
       </h1>
+      <em>
        <nav class="navbar">
          <a href="/">Home</a>
          <a href="/dashboard">Dashboard</a>
@@ -26,13 +27,16 @@
          <a href="/login">Login</a>
          {{/if}}
        </nav>
+       </em>
     </header>
     <main>
       {{{ body }}}
     </main>
-    <footer>
-      Thanks for Blogging!
-    </footer>
+    <b>
+      <footer>
+        Thanks for Blogging!
+      </footer>
+    </b>
   </div>
 
   {{#if loggedIn}}
