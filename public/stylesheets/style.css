@@ -7,7 +7,7 @@
     height: 100%;
     padding: 0;
     margin: 0;
-    font-family: sans-serif;
+    font-family: "Raleway",sans-serif;
     color: #333;
     line-height:1.5;
     font-size: 25px;
@@ -25,16 +25,19 @@
     font-size: 25px;
   }
 
+  nav a {
+    margin: 0 25px;
+  }
   
   a {
     text-decoration: none;
     color: #225ca3;
-    font-weight: bold;
     transition: color .1s;
+    font-weight: bold;
   }
   
   a:hover {
-    color: #3486eb;
+    color: #8A84E2;
   }
 
   p {
@@ -47,6 +50,8 @@
     padding: 1%;
     color: white;
     font-weight: bold;
+    margin-top: 25px;
+    width: 100%;
     transition: background-color .1s;
     cursor: pointer;
     border-radius: 5px;
@@ -75,7 +80,7 @@
   }
   
   textarea {
-    min-width: 40%;
+    min-width: 100%;
     min-height: 100px;
   }
 
@@ -87,9 +92,16 @@
   display: block;
   }
 
-  .form-label {
+
+  /* .form-label {
     font-size: 1.1rem;
     margin: 0 0 0 5px;
+  } */
+
+  form label {
+    font-size: 1.1rem;
+    margin-bottom: 0.5%;
+    display: block;
   }
   
   .form-input {
@@ -104,7 +116,7 @@
   .wrapper {
     width: 100%;
     min-height: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -120,7 +132,7 @@
   }
   
   header h1 {
-    font-size: 1em;
+    font-size: 2em;
   }
   
   main {
@@ -130,22 +142,20 @@
     width: 95%;
   }
   
+  
   .btn-no-style {
     background: none;
     border: none;
-    padding: 0;
     cursor: pointer;
     text-decoration: none;
     color: #225ca3;
     font-size: 100%;
-    font-weight: bold;
     transition: color .1s;
-    margin-left: 16px;
-  }
+  } 
   
   .btn-no-style:hover {
     background: none;
-    color: #3486eb;
+    color: #8A84E2;
   }
   
   .delete-post-btn {
