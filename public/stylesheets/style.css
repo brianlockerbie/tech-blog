@@ -13,7 +13,15 @@
     font-size: 25px;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 650;
+    margin: 0;
+    color: #8A84E2;
+    line-height: 1.25;
+  }
+
   .navbar {
+    width: 100%;
     font-size: 25px;
   }
 
@@ -27,6 +35,10 @@
   
   a:hover {
     color: #3486eb;
+  }
+
+  p {
+    font-size: 1.2rem;
   }
   
   button {
@@ -49,8 +61,10 @@
     padding: 0;
   }
   
-  textarea, input {
-    padding: .5%;
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 0 0 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
   }
@@ -64,13 +78,27 @@
     min-width: 40%;
     min-height: 100px;
   }
+
+  /* FORM */
   
-  form > div {
-    margin-bottom: 2%;
+  .form-label,
+  .form-input,
+  .form-textarea {
+  display: block;
+  }
+
+  .form-label {
+    font-size: 1.1rem;
+    margin: 0 0 0 5px;
   }
   
-  form label {
-    display: block;
+  .form-input {
+    width: 100%;
+    padding: 1%;
+    margin: 5px 0;
+    font-size: 1.2rem;
+    border: 2px solid #84AFE6;
+    border-radius: 0.3rem;
   }
   
   .wrapper {
@@ -88,6 +116,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 1%;
+    margin-top: 50px;
   }
   
   header h1 {
@@ -97,6 +126,8 @@
   main {
     flex: 1;
     padding: 2% 4%;
+    margin: 20px auto;
+    width: 95%;
   }
   
   .btn-no-style {
@@ -176,6 +207,7 @@
   .edit-post-form {
     margin-bottom: 5%;
   }
+
   
   footer {
     border-top: 1px solid #ccc;
