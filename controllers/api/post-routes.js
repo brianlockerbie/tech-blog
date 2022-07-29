@@ -74,18 +74,20 @@ router.get('/:id', (req, res) => {
       });
   });
 
-router.post('/', withAuth, (req, res) => {
-    Post.create({
-      title: req.body.title,
-      post_url: req.body.content,
-      user_id: req.session.user_id
-    })
-      .then(dbPostData => res.json(dbPostData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-});
+  router.post('/', withAuth, (req, res) => {
+    console.log('backend req body', req.body) ///ADD THIS
+     Post.create({
+       title: req.body.title,
+       content: req.body.content,
+       user_id: req.session.user_id
+     })
+       .then(dbPostData => res.json(dbPostData))
+       .catch(err => {
+         console.log(err);
+         res.status(500).json(err);
+       });
+ });
+
 
 router.put('/:id', withAuth, (req, res) => {
     Post.update(
