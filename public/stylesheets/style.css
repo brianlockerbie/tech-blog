@@ -45,7 +45,7 @@
   }
   
   button {
-    background-color: #225ca3;
+    background-color: #4169e1;
     border: 0;
     padding: 1%;
     color: white;
@@ -56,6 +56,23 @@
     cursor: pointer;
     border-radius: 5px;
   }
+
+  button-edit {
+    background-color: #4169e1;
+    width: 50%;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+  }
+
+  .edit-button {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .edit-button button {
+    margin-bottom: 2%;
+  }
   
   button:hover {
     background-color: #3486eb;
@@ -64,6 +81,10 @@
   .post-list {
     margin: 0;
     padding: 0;
+  }
+
+  .post-list {
+    margin-top: 5%;
   }
   
   input {
@@ -91,7 +112,6 @@
   .form-textarea {
   display: block;
   }
-
 
   /* .form-label {
     font-size: 1.1rem;
@@ -142,7 +162,6 @@
     width: 95%;
   }
   
-  
   .btn-no-style {
     background: none;
     border: none;
@@ -158,12 +177,12 @@
     color: #8A84E2;
   }
   
-  .delete-post-btn {
-    background-color: #d41414;
+  .delete-btn {
+    background-color: #8A84E2;
   }
   
-  .delete-post-btn:hover {
-    background-color: #ff643d;
+  .delete-btn:hover {
+    background-color: #d41414;
   }
   
   .post {
@@ -180,15 +199,6 @@
   .edit-link {
     display: block;
     margin: -1.5% 0 2% 0;
-  }
-  
-  .upvote-btn {
-    background-color: #197d0f;
-    transition: background-color .1s;
-  }
-  
-  .upvote-btn:hover {
-    background-color: #1f9c13;
   }
   
   .comment-form {
@@ -211,14 +221,13 @@
   }
   
   .new-post-form input {
-    width: 300px;
+    width: 500px;
   }
   
   .edit-post-form {
     margin-bottom: 5%;
   }
 
-  
   footer {
     border-top: 1px solid #ccc;
     display: flex;
