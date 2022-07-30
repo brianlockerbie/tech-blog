@@ -7,18 +7,18 @@
     <div>
         {{post.user.username}} by you on {{format_date post.created_at}}
         |
-        <a href="/post/{{post.id}}>{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+        <a href="/post/{{post.id}}"">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
     </div>
 </article>
 
 {{#if loggedIn}}
-<form class="comment-form">
+<form class="comment-area">
   <div>
     <textarea name="comment-body"></textarea>
   </div>
 
   <div>
-    <button type="submit">add comment</button>
+    <button type="submit">Add Comment</button>
   </div>
 </form>
 {{/if}}
