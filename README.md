@@ -1,4 +1,4 @@
-<h1 align="center">Tech Blog App </h1>
+<h1 align="center">Talking Tech App </h1>
 <p align="center">Module #14 - Model-View-Controller (MVC)</p>
 
 ## Description
@@ -56,6 +56,5 @@ WHEN I am idle on the site for more than a set time
 THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
 
 ## Screenshots
-<img src="">
-<img src="">
-<img src="">
+<img src="assets/images/talking-tech-ss.png">
+<img src="assets/images/talking-tech-ss1.png">
