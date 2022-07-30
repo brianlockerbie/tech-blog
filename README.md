@@ -2,18 +2,20 @@
 <p align="center">Module #14 - Model-View-Controller (MVC)</p>
 
 ## Description
+This application allows you to create posts and comment on other posts to express your thoughts in the tech community. Users can make an account, log in, and immediately view our database of blog posts made by other users.
 
 
 ## Built With:
 * JavaScript
 * CSS
-* Handlebars
-
-## Installation
+* Handlebars.js
+* MySQL
+* Node.js
+* Express
 
 
 ## Usage
-Live link 
+Live Heroku link: https://shrouded-headland-93448.herokuapp.com
 
 ## User Story
 AS A developer who writes about tech
